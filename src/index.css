@@ -1,0 +1,42 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-mono: "Fira Code", "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+
+  --color-portfolio-bg: #030712;
+  --color-portfolio-surface: #111827;
+  --color-portfolio-surface-light: #1f2937;
+  --color-portfolio-accent: #38bdf8;
+  --color-portfolio-text: #f9fafb;
+  --color-portfolio-text-muted: #9ca3af;
+  --color-portfolio-border: rgba(255, 255, 255, 0.1);
+  --color-portfolio-glow: rgba(56, 189, 248, 0.5);
+}
+
+@layer base {
+  :root {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+    --border: 217.2 32.6% 17.5%;
+  }
+
+  body {
+    @apply bg-portfolio-bg text-portfolio-text font-sans antialiased selection:bg-portfolio-accent/30 selection:text-white;
+    overflow-x: hidden;
+  }
+}
+
+@layer utilities {
+  .glass-panel {
+    @apply bg-portfolio-surface/50 backdrop-blur-md border border-portfolio-border shadow-[0_0_15px_rgba(0,0,0,0.5)];
+  }
+
+  .text-gradient {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-portfolio-text to-portfolio-text-muted;
+  }
+
+  .text-gradient-accent {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-white to-portfolio-accent;
+  }
+}
